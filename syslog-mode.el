@@ -418,9 +418,11 @@ With prefix arg: remove lines between dates."
     ("\"[^\"]*\"" . 'font-lock-string-face)
     ("'[^']*'" . 'font-lock-string-face)
     ;; Hours: 17:36:00
-    ("\\(?:^\\|[[:space:]]\\)\\([[:digit:]]\\{1,2\\}:[[:digit:]]\\{1,2\\}\\(:[[:digit:]]\\{1,2\\}\\)?\\)\\(?:$\\|[[:space:]]\\)" 1 'syslog-hour append)
-    ;; Date
+    ("\\(?:^\\|[[:space:]]\\)\\([[:digit:]]\\{1,2\\}:[[:digit:]]\\{1,2\\}\\(:[[:digit:]]\\{1,2\\}\\)?\\(.[[:digit:]]\\{1,3\\}\\)?\\)\\(?:$\\|[[:space:]]\\)" 1 'syslog-hour append)
+    ;; Date 20/10/2014
     ("\\(?:^\\|[[:space:]]\\)\\([[:digit:]]\\{1,2\\}/[[:digit:]]\\{1,2\\}/[[:digit:]]\\{2,4\\}\\)\\(?:$\\|[[:space:]]\\)" 1 'syslog-hour append)
+    ;; Date 2014-10-20
+    ("\\(?:^\\|[[:space:]]\\)\\([[:digit:]]\\{2,4\\}-[[:digit:]]\\{1,2\\}-[[:digit:]]\\{1,2\\}\\)\\(?:$\\|[[:space:]]\\)" 1 'syslog-hour append)
     ;; Dates: May  9 15:52:34
     ("^\\(\\(?:[[:alpha:]]\\{3\\}\\)?[[:space:]]*[[:alpha:]]\\{3\\}\\s-+[0-9]+\\s-+[0-9:]+\\)" 1 'font-lock-type-face t)
     ;; Su events
